@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dquordle/CLionProjects/push_swap/checker.c
+push_swap.h
+/Users/dquordle/CLionProjects/push_swap/push_swap.h
+stdio.h
+-
+
+/Users/dquordle/CLionProjects/push_swap/libftV3/libft.h
+unistd.h
+-
+stdlib.h
+-
+
+/Users/dquordle/CLionProjects/push_swap/push_swap.h
+libftV3/libft.h
+/Users/dquordle/CLionProjects/push_swap/libftV3/libft.h
+
