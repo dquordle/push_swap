@@ -78,7 +78,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/dquordle/CLionProjects/push_swap/actions.c">
+			<Option target="push_swap"/>
+		</Unit>
 		<Unit filename="/Users/dquordle/CLionProjects/push_swap/checker.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/dquordle/CLionProjects/push_swap/push_swap.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/dquordle/CLionProjects/push_swap/push_swap.h">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/dquordle/CLionProjects/push_swap/utils.c">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/dquordle/CLionProjects/push_swap/CMakeLists.txt">

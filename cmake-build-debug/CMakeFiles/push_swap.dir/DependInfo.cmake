@@ -4,7 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/dquordle/CLionProjects/push_swap/actions.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/actions.c.o"
   "/Users/dquordle/CLionProjects/push_swap/checker.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/checker.c.o"
+  "/Users/dquordle/CLionProjects/push_swap/push_swap.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/push_swap.c.o"
+  "/Users/dquordle/CLionProjects/push_swap/utils.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/utils.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
