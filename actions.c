@@ -35,8 +35,8 @@ void	ft_command(char *buf, int **stack_a, int **stack_b)
 	}
 	else
 		ft_error(0);
-	int size_a = (*stack_a)[0];
-	int i = 1;
+//	int size_a = (*stack_a)[0];
+//	int i = 1;
 //	printf("stack_a\n");
 //	while (i < size_a)
 //		printf("%d\n", (*stack_a)[i++]);

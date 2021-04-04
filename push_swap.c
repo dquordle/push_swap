@@ -6,44 +6,96 @@ void	ft_exec_command(char *comm, int **stack_a, int **stack_b)
 	write(1, comm, ft_strlen(comm));
 }
 
+//void	ft_two(int *stack)
+//{
+//	if (stack[1] > stack[2])
+//	{
+//		ft_rotate(stack);
+//		write(1, "ra\n", 3);
+//	}
+//}
 
-void	ft_two(int *stack_a)
+int	ft_is_sorted(int *array, int start, int end)
 {
-	if (stack_a[1] > stack_a[2])
+	if (start < end)
 	{
-		ft_rotate(stack_a);
-		write(1, "ra\n", 3);
+		while (start < end)
+		{
+			if (array[start] > array[end])
+				return (0);
+			start++;
+		}
 	}
-}
-
-void	ft_three(int *stack_a)
-{
-	if (stack_a[0] == 3)
-		ft_two(stack_a);
 	else
 	{
-		if (stack_a[1] < stack_a[2] && stack_a[2] < stack_a[3])
-			return;
-		if (stack_a[1] < stack_a[2])
+		while (start > end)
 		{
-			ft_reverse_rotate(stack_a);
-			write(1, "rra\n", 4);
-			ft_three(stack_a);
+			if (array[start] > array[end])
+				return (0);
+			start--;
 		}
-		else if (stack_a[1] < stack_a[3])
+	}
+	return (1);
+}
+
+void	ft_three(int *stack)
+{
+	if (stack[0] == 3)
+	{
+		if (stack[1] > stack[2])
+			ft_exec_command("sa\n", &stack, NULL);
+	}
+	else
+	{
+		if (stack[1] < stack[2] && stack[2] < stack[3])
+			return;
+		if (stack[1] < stack[2])
 		{
-			ft_swap(stack_a);
-			write(1, "sa\n", 3);
-			ft_three(stack_a);
+			ft_exec_command("rra\n", &stack, NULL);
+			ft_three(stack);
+		}
+		else if (stack[1] < stack[3])
+		{
+			ft_exec_command("sa\n", &stack, NULL);
+			ft_three(stack);
 		}
 		else
 		{
-			ft_rotate(stack_a);
-			write(1, "ra\n", 3);
-			ft_three(stack_a);
+			ft_exec_command("ra\n", &stack, NULL);
+			ft_three(stack);
 		}
 	}
 }
+
+void	ft_rev_three(int *stack)
+{
+	if (stack[0] == 3)
+	{
+		if (stack[1] < stack[2])
+			ft_exec_command("sb\n", NULL, &stack);
+	}
+	else
+	{
+		if (stack[1] > stack[2] && stack[2] > stack[3])
+			return ;
+		if (stack[1] > stack[2])
+		{
+			ft_exec_command("rrb\n", NULL, &stack);
+			ft_rev_three(stack);
+		}
+		else if (stack[1] > stack[3])
+		{
+			ft_exec_command("sb\n", NULL, &stack);
+			ft_rev_three(stack);
+		}
+		else
+		{
+			ft_exec_command("rb\n", NULL, &stack);
+			ft_rev_three(stack);
+		}
+	}
+}
+
 #include <stdio.h>
 float	ft_get_median(int *array, int start, int end)
 {
@@ -59,10 +111,10 @@ float	ft_get_median(int *array, int start, int end)
 	while (start < end)
 		copy[i++] = array[start++];
 	sorted = merge_sort(copy, buf, 0, i - 1);
-	if (array[0] % 2 == 0)
-		median = sorted[array[0] / 2 - 1];
+	if (i % 2 != 0)
+		median = sorted[i / 2];
 	else
-		median = (sorted[array[0] / 2 - 1] + sorted[array[0] / 2]) / 2.0;
+		median = (sorted[i / 2 - 1] + sorted[i / 2]) / 2.0;
 	free(copy);
 	free(buf);
 	return (median);
@@ -174,6 +226,11 @@ void	ft_algos(int **stack_a, int **stack_b)
 	{
 		while ((*stack_a)[0] - cut_a > 3)
 		{
+			if (ft_is_sorted(*stack_a, 1, (*stack_a)[0] - 1))
+			{
+				cut_a = (*stack_a)[0];
+				break ;
+			}
 			median = ft_get_median(*stack_a, cut_a, (*stack_a)[0]);
 			buf = (*stack_a)[0] - cut_a;
 			count = 0;
@@ -185,7 +242,7 @@ void	ft_algos(int **stack_a, int **stack_b)
 					ft_exec_command("pb\n", stack_a, stack_b);
 					count++;
 				}
-				else
+				else if (buf > 1)
 				{
 					ft_exec_command("ra\n", stack_a, stack_b);
 					count_a++;
@@ -216,8 +273,22 @@ void	ft_algos(int **stack_a, int **stack_b)
 //		int i = 0;
 //		while (partitions_b[i])
 //			printf("%d\n", partitions_b[i++]);
-		ft_first_three(*stack_a, &cut_a);
-		if (partitions_b[0] && partitions_b[0] <= 3)
+		if (cut_a == 1)
+		{
+			ft_three(*stack_a);
+			cut_a = (*stack_a)[0];
+		}
+		else
+			ft_first_three(*stack_a, &cut_a);
+		if ((*stack_b)[0] > 1 && (*stack_b)[0] <= 4)
+		{
+			ft_rev_three(*stack_b);
+			while ((*stack_b)[0] > 1)
+				ft_exec_command("pa\n", stack_a, stack_b);
+			cut_a = (*stack_a)[0];
+			partitions_b[0] = 0;
+		}
+		else if ((partitions_b[0] > 0 && partitions_b[0] <= 3) || ft_is_sorted(*stack_b, partitions_b[0],  1))
 		{
 			while (partitions_b[0]-- > 0)
 				ft_exec_command("pa\n", stack_a, stack_b);
@@ -226,7 +297,7 @@ void	ft_algos(int **stack_a, int **stack_b)
 		}
 		else if ((*stack_b)[0] > 1)
 		{
-			median = ft_get_median(*stack_b, 1, partitions_b[0]);
+			median = ft_get_median(*stack_b, 1, partitions_b[0] + 1);
 			buf = partitions_b[0];
 			count = 0;
 			while (buf > 0)
@@ -243,13 +314,24 @@ void	ft_algos(int **stack_a, int **stack_b)
 			if (partitions_b[0] - count <= 3)
 				ft_first_three(*stack_a, &cut_a);
 			partitions_b[0] = count;
-			while (count-- > 0)
-				ft_exec_command("rrb\n", stack_a, stack_b);;
+			if (partitions_b[1])
+			{
+				while (count-- > 0)
+					ft_exec_command("rrb\n", stack_a, stack_b);
+			}
 		}
 //		printf("stack_a\n");
-//		i = 1;
+//		int i = 1;
 //		while (i < (*stack_a)[0])
 //			printf("%d\n", (*stack_a)[i++]);
+//		printf("stack_b\n");
+//		i = 1;
+//		while (i < (*stack_b)[0])
+//			printf("%d\n", (*stack_b)[i++]);
+//		printf("partitions_b:\n");
+//		i = 0;
+//		while (partitions_b[i])
+//			printf("%d\n", partitions_b[i++]);
 	}
 }
 
@@ -257,7 +339,6 @@ int main(int argc, char **argv)
 {
 	int	*stack_a;
 	int	*stack_b;
-
 
 	if (argc <= 2)
 		exit(0);
@@ -269,9 +350,10 @@ int main(int argc, char **argv)
 	if (argc <= 4)
 		ft_three(stack_a);
 	else
-	{
 		ft_algos(&stack_a, &stack_b);
-	}
+//	write(1, "sa\n", 3);
+//	while (1)
+//		;
 //	printf("initial stack:\n");
 //	int i = 1;
 //	while (i < stack_a[0])
