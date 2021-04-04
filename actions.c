@@ -1,5 +1,51 @@
 #include "push_swap.h"
 
+void	ft_command(char *buf, int **stack_a, int **stack_b)
+{
+	if (!ft_strcmp(buf, "sa\n"))
+		ft_swap(*stack_a);
+	else if (!ft_strcmp(buf, "sb\n"))
+		ft_swap(*stack_b);
+	else if (!ft_strcmp(buf, "ss\n"))
+	{
+		ft_swap(*stack_a);
+		ft_swap(*stack_b);
+	}
+	else if (!ft_strcmp(buf, "pa\n"))
+		ft_push(stack_a, stack_b);
+	else if (!ft_strcmp(buf, "pb\n"))
+		ft_push(stack_b, stack_a);
+	else if (!ft_strcmp(buf, "ra\n"))
+		ft_rotate(*stack_a);
+	else if (!ft_strcmp(buf, "rb\n"))
+		ft_rotate(*stack_b);
+	else if (!ft_strcmp(buf, "rr\n"))
+	{
+		ft_rotate(*stack_a);
+		ft_rotate(*stack_b);
+	}
+	else if (!ft_strcmp(buf, "rra\n"))
+		ft_reverse_rotate(*stack_a);
+	else if (!ft_strcmp(buf, "rrb\n"))
+		ft_reverse_rotate(*stack_b);
+	else if (!ft_strcmp(buf, "rrr\n"))
+	{
+		ft_reverse_rotate(*stack_a);
+		ft_reverse_rotate(*stack_b);
+	}
+	else
+		ft_error(0);
+	int size_a = (*stack_a)[0];
+	int i = 1;
+//	printf("stack_a\n");
+//	while (i < size_a)
+//		printf("%d\n", (*stack_a)[i++]);
+//	printf("stack_b\n");
+//	i = 1;
+//	while (i < (*stack_b)[0])
+//		printf("%d\n", (*stack_b)[i++]);
+}
+
 void	ft_swap(int *stack)
 {
 	int buf;

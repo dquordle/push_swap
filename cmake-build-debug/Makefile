@@ -197,6 +197,33 @@ checker.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/checker.c.s
 .PHONY : checker.c.s
 
+merge_sort.o: merge_sort.c.o
+
+.PHONY : merge_sort.o
+
+# target to build an object file
+merge_sort.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/merge_sort.c.o
+.PHONY : merge_sort.c.o
+
+merge_sort.i: merge_sort.c.i
+
+.PHONY : merge_sort.i
+
+# target to preprocess a source file
+merge_sort.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/merge_sort.c.i
+.PHONY : merge_sort.c.i
+
+merge_sort.s: merge_sort.c.s
+
+.PHONY : merge_sort.s
+
+# target to generate assembly for a file
+merge_sort.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/merge_sort.c.s
+.PHONY : merge_sort.c.s
+
 push_swap.o: push_swap.c.o
 
 .PHONY : push_swap.o
@@ -266,6 +293,9 @@ help:
 	@echo "... checker.o"
 	@echo "... checker.i"
 	@echo "... checker.s"
+	@echo "... merge_sort.o"
+	@echo "... merge_sort.i"
+	@echo "... merge_sort.s"
 	@echo "... push_swap.o"
 	@echo "... push_swap.i"
 	@echo "... push_swap.s"

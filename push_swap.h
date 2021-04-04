@@ -13,6 +13,7 @@ void	ft_swap(int *stack);
 void	ft_push(int **stack_to, int **stack_from);
 void	ft_rotate(int *stack);
 void	ft_reverse_rotate(int *stack);
-
+int* merge_sort(int *up, int *down, unsigned int left, unsigned int right);
+void	ft_command(char *buf, int **stack_a, int **stack_b);
 
 #endif
