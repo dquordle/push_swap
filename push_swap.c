@@ -182,40 +182,40 @@ void	ft_algos(int **stack_a, int **stack_b)
 			{
 				if ((*stack_a)[1] <= median)
 				{
-					ft_push(stack_b, stack_a);
+					ft_exec_command("pb\n", stack_a, stack_b);
 					count++;
 				}
 				else
 				{
-					ft_rotate(*stack_a);
+					ft_exec_command("ra\n", stack_a, stack_b);
 					count_a++;
 				}
 				buf--;
 			}
-			if (cut_a)
+			if (cut_a > 1)
 			{
 				while (count_a--)
-					ft_reverse_rotate(*stack_a);
+					ft_exec_command("rra\n", stack_a, stack_b);
 			}
 			partitions_b = ft_appstart(&partitions_b, count);
-			printf("median: %f\n", median);
-			printf("stack_a\n");
-			int i = 1;
-			while (i < (*stack_a)[0])
-				printf("%d\n", (*stack_a)[i++]);
-			printf("stack_b\n");
-			i = 1;
-			while (i < (*stack_b)[0])
-				printf("%d\n", (*stack_b)[i++]);
-			printf("partitions_b:\n");
-			i = 0;
-			while (partitions_b[i])
-				printf("%d\n", partitions_b[i++]);
+//			printf("median: %f\n", median);
+//			printf("stack_a\n");
+//			int i = 1;
+//			while (i < (*stack_a)[0])
+//				printf("%d\n", (*stack_a)[i++]);
+//			printf("stack_b\n");
+//			i = 1;
+//			while (i < (*stack_b)[0])
+//				printf("%d\n", (*stack_b)[i++]);
+//			printf("partitions_b:\n");
+//			i = 0;
+//			while (partitions_b[i])
+//				printf("%d\n", partitions_b[i++]);
 		}
-		printf("partitions_b:\n");
-		int i = 0;
-		while (partitions_b[i])
-			printf("%d\n", partitions_b[i++]);
+//		printf("partitions_b:\n");
+//		int i = 0;
+//		while (partitions_b[i])
+//			printf("%d\n", partitions_b[i++]);
 		ft_first_three(*stack_a, &cut_a);
 		if (partitions_b[0] && partitions_b[0] <= 3)
 		{
@@ -232,10 +232,10 @@ void	ft_algos(int **stack_a, int **stack_b)
 			while (buf > 0)
 			{
 				if ((*stack_b)[1] >= median)
-					ft_push(stack_a, stack_b);
+					ft_exec_command("pa\n", stack_a, stack_b);
 				else
 				{
-					ft_rotate(*stack_b);
+					ft_exec_command("rb\n", stack_a, stack_b);
 					count++;
 				}
 				buf--;
@@ -244,12 +244,12 @@ void	ft_algos(int **stack_a, int **stack_b)
 				ft_first_three(*stack_a, &cut_a);
 			partitions_b[0] = count;
 			while (count-- > 0)
-				ft_reverse_rotate(*stack_b);
+				ft_exec_command("rrb\n", stack_a, stack_b);;
 		}
-		printf("stack_a\n");
-		i = 1;
-		while (i < (*stack_a)[0])
-			printf("%d\n", (*stack_a)[i++]);
+//		printf("stack_a\n");
+//		i = 1;
+//		while (i < (*stack_a)[0])
+//			printf("%d\n", (*stack_a)[i++]);
 	}
 }
 

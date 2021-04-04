@@ -1,5 +1,5 @@
 #include "push_swap.h"
-//#include <stdio.h>
+#include <stdio.h>
 
 void	ft_okko(int *stack_a, int *stack_b)
 {
@@ -23,29 +23,45 @@ void	ft_okko(int *stack_a, int *stack_b)
 	write(1, "OK\n", 3);
 }
 
-//int	main(int argc, char **argv)
-//{
-//	int	*stack_a;
-//	int	*stack_b;
-//	int check;
-//	char buf[5];
-//
-//	if (argc == 1)
-//		exit(0);
-//	stack_a = ft_create_stack(argc, argv);
-//	stack_b = (int *)malloc(sizeof(int));
-//	if (!stack_b)
-//		ft_error(1);
-//	*stack_b = 1;
-////	int size_a = stack_a[0];
-////	int i = 1;
-////	while (i < size_a)
-////		printf("%d\n", stack_a[i++]);
-//	while ((check = read(0, buf, 4)))
-//	{
-//		buf[check] = 0;
-//		ft_command(buf, &stack_a, &stack_b);
-//	}
-//	ft_okko(stack_a, stack_b);
-//	return (0);
-//}
+int	main(int argc, char **argv)
+{
+	int	*stack_a;
+	int	*stack_b;
+	int check;
+	char *buf;
+
+	if (argc == 1)
+		exit(0);
+//	check = 1;
+//	while (argv[check])
+//		printf("%s\n", argv[check++]);
+	stack_a = ft_create_stack(argc, argv);
+	stack_b = (int *)malloc(sizeof(int));
+	if (!stack_b)
+		ft_error(1);
+	*stack_b = 1;
+//	int size_a = stack_a[0];
+//	int i = 1;
+//	while (i < size_a)
+//		printf("%d\n", stack_a[i++]);
+	buf = NULL;
+	while (get_next_line(0, &buf))
+	{
+//		printf("%s\n", buf);
+		buf = ft_strjoinf(buf, "\n");
+		ft_command(buf, &stack_a, &stack_b);
+		free(buf);
+		buf = NULL;
+	}
+	if (buf && buf[0])
+	{
+//		printf("%s\n", buf);
+//		printf("%s\n", buf);
+//		printf("%s\n", buf);
+		buf = ft_strjoinf(buf, "\n");
+		ft_command(buf, &stack_a, &stack_b);
+		free(buf);
+	}
+	ft_okko(stack_a, stack_b);
+	return (0);
+}

@@ -15,5 +15,7 @@ void	ft_rotate(int *stack);
 void	ft_reverse_rotate(int *stack);
 int* merge_sort(int *up, int *down, unsigned int left, unsigned int right);
 void	ft_command(char *buf, int **stack_a, int **stack_b);
+int		get_next_line(int fd, char **line);
+char	*ft_strjoinf(char *s1, char *s2);
 
 #endif

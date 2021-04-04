@@ -84,7 +84,7 @@ int	*ft_create_stack(int argc, char **argv)
 	i = 0;
 	while (argv[++i])
 		arr[i] = ft_atoi_new(argv[i]);
-	while (i > 1)
+	while (--i > 1)
 	{
 		j = i - 1;
 		while (j >= 1)
@@ -93,7 +93,6 @@ int	*ft_create_stack(int argc, char **argv)
 				ft_error(0);
 			j--;
 		}
-		i--;
 	}
 	return (arr);
 }

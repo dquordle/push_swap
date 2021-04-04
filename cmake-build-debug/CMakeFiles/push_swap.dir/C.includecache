@@ -12,13 +12,11 @@ unistd.h
 stdlib.h
 -
 
-/Users/dquordle/CLionProjects/push_swap/push_swap.c
-push_swap.h
-/Users/dquordle/CLionProjects/push_swap/push_swap.h
-stdio.h
--
-
 /Users/dquordle/CLionProjects/push_swap/push_swap.h
 libftV3/libft.h
 /Users/dquordle/CLionProjects/push_swap/libftV3/libft.h
+
+/Users/dquordle/CLionProjects/push_swap/utils.c
+push_swap.h
+/Users/dquordle/CLionProjects/push_swap/push_swap.h
 
