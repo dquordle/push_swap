@@ -66,12 +66,14 @@ void	ft_push(int **stack_to, int **stack_from)
 	if ((*stack_from)[0] == 1)
 		return ;
 	new_stack_to = (int *)malloc(sizeof(int) * ((*stack_to)[0] + 1));
+	new_stack_from = (int *)malloc(sizeof(int) * ((*stack_from)[0] - 1));
+	if (!new_stack_to || !new_stack_from)
+		ft_error(1);
 	new_stack_to[0] = (*stack_to)[0] + 1;
 	new_stack_to[1] = (*stack_from)[1];
 	i = 0;
 	while (++i < (*stack_to)[0])
 		new_stack_to[i + 1] = (*stack_to)[i];
-	new_stack_from = (int *)malloc(sizeof(int) * ((*stack_from)[0] - 1));
 	new_stack_from[0] = (*stack_from)[0] - 1;
 	i = 0;
 	while (++i < new_stack_from[0])

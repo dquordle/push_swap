@@ -21,7 +21,7 @@ int	ft_is_sorted(int *array, int start, int end)
 	{
 		while (start < end)
 		{
-			if (array[start] > array[end])
+			if (array[start] > array[start + 1])
 				return (0);
 			start++;
 		}
@@ -30,7 +30,7 @@ int	ft_is_sorted(int *array, int start, int end)
 	{
 		while (start > end)
 		{
-			if (array[start] > array[end])
+			if (array[start] > array[start - 1])
 				return (0);
 			start--;
 		}
@@ -208,131 +208,129 @@ void	ft_first_three(int *stack, int *a)
 	*a = stack[0];
 }
 
-void	ft_algos(int **stack_a, int **stack_b)
+int	ft_pb_cycle_2(int **stack_a, int **stack_b, int cut_a, int **partition)
 {
 	float median;
 	int buf;
-	int *partitions_b;
-	int count;
 	int count_a;
+	int count;
+
+	count_a = 0;
+	count = 0;
+	median = ft_get_median(*stack_a, cut_a, (*stack_a)[0]);
+	buf = (*stack_a)[0] - cut_a;
+	while (buf > 0)
+	{
+		if ((*stack_a)[1] <= median)
+		{
+			ft_exec_command("pb\n", stack_a, stack_b);
+			count++;
+		}
+		else if (buf > 1)
+		{
+			ft_exec_command("ra\n", stack_a, stack_b);
+			count_a++;
+		}
+		buf--;
+	}
+	*partition = ft_appstart(partition, count);
+	return (count_a);
+}
+
+void	ft_pb_cycle(int **stack_a, int **stack_b,  int *cut_a, int **partition)
+{
+	int count_a;
+
+	while ((*stack_a)[0] - *cut_a > 3)
+	{
+		if (ft_is_sorted(*stack_a, 1, (*stack_a)[0] - 1))
+		{
+			*cut_a = (*stack_a)[0];
+			break ;
+		}
+		count_a = ft_pb_cycle_2(stack_a, stack_b, *cut_a, partition);
+		if (*cut_a > 1)
+		{
+			while (count_a--)
+				ft_exec_command("rra\n", stack_a, stack_b);
+		}
+	}
+	if (*cut_a == 1)
+	{
+		ft_three(*stack_a);
+		*cut_a = (*stack_a)[0];
+	}
+	else
+		ft_first_three(*stack_a, cut_a);
+}
+
+void	ft_pa_cycle_2(int **stack_a, int **stack_b, int *cut_a, int **partition)
+{
+	float	median;
+	int	buf;
+	int	count;
+
+	median = ft_get_median(*stack_b, 1, (*partition)[0] + 1);
+	buf = (*partition)[0];
+	count = 0;
+	while (buf-- > 0)
+	{
+		if ((*stack_b)[1] >= median)
+			ft_exec_command("pa\n", stack_a, stack_b);
+		else
+		{
+			ft_exec_command("rb\n", stack_a, stack_b);
+			count++;
+		}
+	}
+	if ((*partition)[0] - count <= 3)
+		ft_first_three(*stack_a, cut_a);
+	(*partition)[0] = count;
+	if ((*partition)[1])
+	{
+		while (count-- > 0)
+			ft_exec_command("rrb\n", stack_a, stack_b);
+	}
+}
+
+void	ft_pa_cycle(int **stack_a, int **stack_b, int *cut_a, int **partition)
+{
+	if ((*stack_b)[0] > 1 && (*stack_b)[0] <= 4)
+	{
+		ft_rev_three(*stack_b);
+		while ((*stack_b)[0] > 1)
+			ft_exec_command("pa\n", stack_a, stack_b);
+		*cut_a = (*stack_a)[0];
+		(*partition)[0] = 0;
+	}
+	else if (((*partition)[0] > 0 && (*partition)[0] <= 3) ||
+		ft_is_sorted(*stack_b, (*partition)[0],  1))
+	{
+		while ((*partition)[0]-- > 0)
+			ft_exec_command("pa\n", stack_a, stack_b);
+		*partition = ft_delstart(partition);
+		ft_first_three(*stack_a, cut_a);
+	}
+	else if ((*stack_b)[0] > 1)
+		ft_pa_cycle_2(stack_a, stack_b, cut_a, partition);
+}
+
+void	ft_algos(int **stack_a, int **stack_b)
+{
+	int *partition;
 	int	cut_a;
 	int init_size;
 
-	partitions_b = (int *)malloc(sizeof(int));
-	partitions_b[0] = 0;
+	partition = (int *)malloc(sizeof(int));
+	partition[0] = 0;
 	cut_a = 1;
 	init_size = (*stack_a)[0];
 	while (cut_a < init_size)
 	{
-		while ((*stack_a)[0] - cut_a > 3)
-		{
-			if (ft_is_sorted(*stack_a, 1, (*stack_a)[0] - 1))
-			{
-				cut_a = (*stack_a)[0];
-				break ;
-			}
-			median = ft_get_median(*stack_a, cut_a, (*stack_a)[0]);
-			buf = (*stack_a)[0] - cut_a;
-			count = 0;
-			count_a = 0;
-			while (buf > 0)
-			{
-				if ((*stack_a)[1] <= median)
-				{
-					ft_exec_command("pb\n", stack_a, stack_b);
-					count++;
-				}
-				else if (buf > 1)
-				{
-					ft_exec_command("ra\n", stack_a, stack_b);
-					count_a++;
-				}
-				buf--;
-			}
-			if (cut_a > 1)
-			{
-				while (count_a--)
-					ft_exec_command("rra\n", stack_a, stack_b);
-			}
-			partitions_b = ft_appstart(&partitions_b, count);
-//			printf("median: %f\n", median);
-//			printf("stack_a\n");
-//			int i = 1;
-//			while (i < (*stack_a)[0])
-//				printf("%d\n", (*stack_a)[i++]);
-//			printf("stack_b\n");
-//			i = 1;
-//			while (i < (*stack_b)[0])
-//				printf("%d\n", (*stack_b)[i++]);
-//			printf("partitions_b:\n");
-//			i = 0;
-//			while (partitions_b[i])
-//				printf("%d\n", partitions_b[i++]);
-		}
-//		printf("partitions_b:\n");
-//		int i = 0;
-//		while (partitions_b[i])
-//			printf("%d\n", partitions_b[i++]);
-		if (cut_a == 1)
-		{
-			ft_three(*stack_a);
-			cut_a = (*stack_a)[0];
-		}
-		else
-			ft_first_three(*stack_a, &cut_a);
-		if ((*stack_b)[0] > 1 && (*stack_b)[0] <= 4)
-		{
-			ft_rev_three(*stack_b);
-			while ((*stack_b)[0] > 1)
-				ft_exec_command("pa\n", stack_a, stack_b);
-			cut_a = (*stack_a)[0];
-			partitions_b[0] = 0;
-		}
-		else if ((partitions_b[0] > 0 && partitions_b[0] <= 3) || ft_is_sorted(*stack_b, partitions_b[0],  1))
-		{
-			while (partitions_b[0]-- > 0)
-				ft_exec_command("pa\n", stack_a, stack_b);
-			partitions_b = ft_delstart(&partitions_b);
-			ft_first_three(*stack_a, &cut_a);
-		}
-		else if ((*stack_b)[0] > 1)
-		{
-			median = ft_get_median(*stack_b, 1, partitions_b[0] + 1);
-			buf = partitions_b[0];
-			count = 0;
-			while (buf > 0)
-			{
-				if ((*stack_b)[1] >= median)
-					ft_exec_command("pa\n", stack_a, stack_b);
-				else
-				{
-					ft_exec_command("rb\n", stack_a, stack_b);
-					count++;
-				}
-				buf--;
-			}
-			if (partitions_b[0] - count <= 3)
-				ft_first_three(*stack_a, &cut_a);
-			partitions_b[0] = count;
-			if (partitions_b[1])
-			{
-				while (count-- > 0)
-					ft_exec_command("rrb\n", stack_a, stack_b);
-			}
-		}
-//		printf("stack_a\n");
-//		int i = 1;
-//		while (i < (*stack_a)[0])
-//			printf("%d\n", (*stack_a)[i++]);
-//		printf("stack_b\n");
-//		i = 1;
-//		while (i < (*stack_b)[0])
-//			printf("%d\n", (*stack_b)[i++]);
-//		printf("partitions_b:\n");
-//		i = 0;
-//		while (partitions_b[i])
-//			printf("%d\n", partitions_b[i++]);
+		ft_pb_cycle(stack_a, stack_b, &cut_a, &partition);
+		ft_pa_cycle(stack_a, stack_b, &cut_a, &partition);
 	}
+	free(partition);
 }
 
 int main(int argc, char **argv)
@@ -354,7 +352,22 @@ int main(int argc, char **argv)
 //	write(1, "sa\n", 3);
 //	while (1)
 //		;
-//	printf("initial stack:\n");
+
+//	printf("stack_a\n");
+//	int i = 1;
+//	while (i < (*stack_a)[0])
+//		printf("%d\n", (*stack_a)[i++]);
+//	printf("stack_b\n");
+//	i = 1;
+//	while (i < (*stack_b)[0])
+//		printf("%d\n", (*stack_b)[i++]);
+//		printf("partition:\n");
+//		i = 0;
+//		while (partition[i])
+//			printf("%d\n", partition[i++]);
+
+
+//	printf("initial stack_a:\n");
 //	int i = 1;
 //	while (i < stack_a[0])
 //		printf("%d\n", stack_a[i++]);
@@ -365,4 +378,6 @@ int main(int argc, char **argv)
 //	if (!stack_b)
 //		ft_error(1);
 //	*stack_b = 1;
+	free(stack_a);
+	free(stack_b);
 }
