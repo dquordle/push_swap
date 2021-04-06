@@ -1,19 +1,5 @@
 #include "push_swap.h"
 
-void	ft_exec_command(char *comm, int **stack_a, int **stack_b)
-{
-	ft_command(comm, stack_a, stack_b);
-	write(1, comm, ft_strlen(comm));
-}
-
-//void	ft_two(int *stack)
-//{
-//	if (stack[1] > stack[2])
-//	{
-//		ft_rotate(stack);
-//		write(1, "ra\n", 3);
-//	}
-//}
 
 int	ft_is_sorted(int *array, int start, int end)
 {
@@ -38,12 +24,12 @@ int	ft_is_sorted(int *array, int start, int end)
 	return (1);
 }
 
-void	ft_three(int *stack)
+void	ft_three(int *stack, t_all *all)
 {
 	if (stack[0] == 3)
 	{
 		if (stack[1] > stack[2])
-			ft_exec_command("sa\n", &stack, NULL);
+			ft_exec_command("sa\n", all);
 	}
 	else
 	{
@@ -51,28 +37,28 @@ void	ft_three(int *stack)
 			return;
 		if (stack[1] < stack[2])
 		{
-			ft_exec_command("rra\n", &stack, NULL);
-			ft_three(stack);
+			ft_exec_command("rra\n", all);
+			ft_three(stack, all);
 		}
 		else if (stack[1] < stack[3])
 		{
-			ft_exec_command("sa\n", &stack, NULL);
-			ft_three(stack);
+			ft_exec_command("sa\n", all);
+			ft_three(stack, all);
 		}
 		else
 		{
-			ft_exec_command("ra\n", &stack, NULL);
-			ft_three(stack);
+			ft_exec_command("ra\n", all);
+			ft_three(stack, all);
 		}
 	}
 }
 
-void	ft_rev_three(int *stack)
+void	ft_rev_three(int *stack, t_all *all)
 {
 	if (stack[0] == 3)
 	{
 		if (stack[1] < stack[2])
-			ft_exec_command("sb\n", NULL, &stack);
+			ft_exec_command("sb\n", all);
 	}
 	else
 	{
@@ -80,18 +66,18 @@ void	ft_rev_three(int *stack)
 			return ;
 		if (stack[1] > stack[2])
 		{
-			ft_exec_command("rrb\n", NULL, &stack);
-			ft_rev_three(stack);
+			ft_exec_command("rrb\n", all);
+			ft_rev_three(stack, all);
 		}
 		else if (stack[1] > stack[3])
 		{
-			ft_exec_command("sb\n", NULL, &stack);
-			ft_rev_three(stack);
+			ft_exec_command("sb\n", all);
+			ft_rev_three(stack, all);
 		}
 		else
 		{
-			ft_exec_command("rb\n", NULL, &stack);
-			ft_rev_three(stack);
+			ft_exec_command("rb\n", all);
+			ft_rev_three(stack, all);
 		}
 	}
 }
@@ -159,56 +145,73 @@ int	*ft_delstart(int **array)
 	return (new_array);
 }
 
-void	ft_first_three_2(int *stack, int *a)
+void	ft_first_three_2(int *stack, int *a, t_all *all)
 {
 	if (stack[2] < stack[1] && stack[1] < stack[3])
-		ft_exec_command("sa\n", &stack, NULL);
+		ft_exec_command("sa\n", all);
 	else if (stack[3] < stack[1] && stack[1] < stack[2])
 	{
-		ft_exec_command("ra\n", &stack, NULL);
-		ft_exec_command("sa\n", &stack, NULL);
-		ft_exec_command("rra\n", &stack, NULL);
-		ft_exec_command("sa\n", &stack, NULL);
+		ft_exec_command("ra\n", all);
+		ft_exec_command("sa\n", all);
+		ft_exec_command("rra\n", all);
+		ft_exec_command("sa\n", all);
 	}
 	else if (stack[2] < stack[3] && stack[3] < stack[1])
 	{
-		ft_exec_command("sa\n", &stack, NULL);
-		ft_exec_command("ra\n", &stack, NULL);
-		ft_exec_command("sa\n", &stack, NULL);
-		ft_exec_command("rra\n", &stack, NULL);
+		ft_exec_command("sa\n", all);
+		ft_exec_command("ra\n", all);
+		ft_exec_command("sa\n", all);
+		ft_exec_command("rra\n", all);
 	}
 	else
 	{
-		ft_exec_command("sa\n", &stack, NULL);
-		ft_exec_command("ra\n", &stack, NULL);
-		ft_exec_command("sa\n", &stack, NULL);
-		ft_exec_command("rra\n", &stack, NULL);
-		ft_exec_command("sa\n", &stack, NULL);
+		ft_exec_command("sa\n", all);
+		ft_exec_command("ra\n", all);
+		ft_exec_command("sa\n", all);
+		ft_exec_command("rra\n", all);
+		ft_exec_command("sa\n", all);
 	}
 }
 
-void	ft_first_three(int *stack, int *a)
+void	ft_first_three(int *stack, int *a, t_all *all)
 {
 	if (stack[0] - *a == 2)
 	{
 		if (stack[1] > stack[2])
-			ft_exec_command("sa\n", &stack, NULL);
+			ft_exec_command("sa\n", all);
 	}
 	else
 	{
 		if (stack[1] < stack[3] && stack[3] < stack[2])
 		{
-			ft_exec_command("ra\n", &stack, NULL);
-			ft_exec_command("sa\n", &stack, NULL);
-			ft_exec_command("rra\n", &stack, NULL);
+			ft_exec_command("ra\n", all);
+			ft_exec_command("sa\n", all);
+			ft_exec_command("rra\n", all);
 		}
 		else if (stack[1] > stack[2] || stack[2] > stack[3])
-			ft_first_three_2(stack, a);
+			ft_first_three_2(all->stack_a, a, all);
 	}
 	*a = stack[0];
 }
 
-int	ft_pb_cycle_2(int **stack_a, int **stack_b, int cut_a, int **partition)
+int ft_need_to_ra(int *stack_a, int cut_a, float median)
+{
+	int i;
+	int buf;
+
+	buf = stack_a[0] - cut_a;
+	i = 1;
+	while (buf > 0)
+	{
+		if (stack_a[i] <= median)
+			return (1);
+		i++;
+		buf--;
+	}
+	return (0);
+}
+
+int	ft_pb_cycle_2(t_all *all, int cut_a, int **partition)
 {
 	float median;
 	int buf;
@@ -217,18 +220,18 @@ int	ft_pb_cycle_2(int **stack_a, int **stack_b, int cut_a, int **partition)
 
 	count_a = 0;
 	count = 0;
-	median = ft_get_median(*stack_a, cut_a, (*stack_a)[0]);
-	buf = (*stack_a)[0] - cut_a;
+	median = ft_get_median(all->stack_a, 1, all->stack_a[0] - cut_a + 1);
+	buf = all->stack_a[0] - cut_a;
 	while (buf > 0)
 	{
-		if ((*stack_a)[1] <= median)
+		if (all->stack_a[1] <= median)
 		{
-			ft_exec_command("pb\n", stack_a, stack_b);
+			ft_exec_command("pb\n", all);
 			count++;
 		}
-		else if (buf > 1)
+		else if (ft_need_to_ra(all->stack_a, cut_a, median))
 		{
-			ft_exec_command("ra\n", stack_a, stack_b);
+			ft_exec_command("ra\n", all);
 			count_a++;
 		}
 		buf--;
@@ -237,85 +240,100 @@ int	ft_pb_cycle_2(int **stack_a, int **stack_b, int cut_a, int **partition)
 	return (count_a);
 }
 
-void	ft_pb_cycle(int **stack_a, int **stack_b,  int *cut_a, int **partition)
+void	ft_pb_cycle(t_all *all,  int *cut_a, int **partition)
 {
 	int count_a;
 
-	while ((*stack_a)[0] - *cut_a > 3)
+	while (all->stack_a[0] - *cut_a > 3)
 	{
-		if (ft_is_sorted(*stack_a, 1, (*stack_a)[0] - 1))
+		if (ft_is_sorted(all->stack_a, 1, all->stack_a[0] - 1))
 		{
-			*cut_a = (*stack_a)[0];
+			*cut_a = all->stack_a[0];
 			break ;
 		}
-		count_a = ft_pb_cycle_2(stack_a, stack_b, *cut_a, partition);
+		count_a = ft_pb_cycle_2(all, *cut_a, partition);
 		if (*cut_a > 1)
 		{
 			while (count_a--)
-				ft_exec_command("rra\n", stack_a, stack_b);
+				ft_exec_command("rra\n", all);
 		}
 	}
 	if (*cut_a == 1)
 	{
-		ft_three(*stack_a);
-		*cut_a = (*stack_a)[0];
+		ft_three(all->stack_a, all);
+		*cut_a = all->stack_a[0];
 	}
 	else
-		ft_first_three(*stack_a, cut_a);
+		ft_first_three(all->stack_a, cut_a, all);
 }
 
-void	ft_pa_cycle_2(int **stack_a, int **stack_b, int *cut_a, int **partition)
+int ft_need_to_rb(int *stack_b, int buf, float median)
 {
-	float	median;
+	int i;
+
+	i = 1;
+	buf++;
+	while (buf > 0)
+	{
+		if (stack_b[i] >= median)
+			return (1);
+		i++;
+		buf--;
+	}
+	return (0);
+}
+
+void	ft_pa_cycle_2(t_all *all, int *cut_a, int **partition)
+{
+	float	med;
 	int	buf;
 	int	count;
+	int count_a;
 
-	median = ft_get_median(*stack_b, 1, (*partition)[0] + 1);
+	med = ft_get_median(all->stack_b, 1, (*partition)[0] + 1);
 	buf = (*partition)[0];
 	count = 0;
+	count_a = 0;
 	while (buf-- > 0)
 	{
-		if ((*stack_b)[1] >= median)
-			ft_exec_command("pa\n", stack_a, stack_b);
-		else
-		{
-			ft_exec_command("rb\n", stack_a, stack_b);
-			count++;
-		}
+		if (all->stack_b[1] < med && ft_need_to_rb(all->stack_b, buf, med)
+			&& ++count)
+			ft_exec_command("rb\n", all);
+		else if (all->stack_b[1] >= med && ++count_a && (*partition)[0]--)
+			ft_exec_command("pa\n", all);
 	}
-	if ((*partition)[0] - count <= 3)
-		ft_first_three(*stack_a, cut_a);
-	(*partition)[0] = count;
+	if (count_a <= 3)
+		ft_first_three(all->stack_a, cut_a, all);
 	if ((*partition)[1])
 	{
 		while (count-- > 0)
-			ft_exec_command("rrb\n", stack_a, stack_b);
+			ft_exec_command("rrb\n", all);
 	}
 }
 
-void	ft_pa_cycle(int **stack_a, int **stack_b, int *cut_a, int **partition)
+void	ft_pa_cycle(t_all *all, int *cut_a, int **partition)
 {
-	if ((*stack_b)[0] > 1 && (*stack_b)[0] <= 4)
+	if (all->stack_b[0] > 1 && all->stack_b[0] <= 4)
 	{
-		ft_rev_three(*stack_b);
-		while ((*stack_b)[0] > 1)
-			ft_exec_command("pa\n", stack_a, stack_b);
-		*cut_a = (*stack_a)[0];
+		ft_rev_three(all->stack_b, all);
+		while (all->stack_b[0] > 1)
+			ft_exec_command("pa\n", all);
+		*cut_a = all->stack_a[0];
 		(*partition)[0] = 0;
 	}
 	else if (((*partition)[0] > 0 && (*partition)[0] <= 3) ||
-		ft_is_sorted(*stack_b, (*partition)[0],  1))
+		ft_is_sorted(all->stack_b, (*partition)[0],  1))
 	{
 		while ((*partition)[0]-- > 0)
-			ft_exec_command("pa\n", stack_a, stack_b);
+			ft_exec_command("pa\n", all);
 		*partition = ft_delstart(partition);
-		ft_first_three(*stack_a, cut_a);
+		ft_first_three(all->stack_a, cut_a, all);
 	}
-	else if ((*stack_b)[0] > 1)
-		ft_pa_cycle_2(stack_a, stack_b, cut_a, partition);
+	else if (all->stack_b[0] > 1)
+		ft_pa_cycle_2(all, cut_a, partition);
 }
 
-void	ft_algos(int **stack_a, int **stack_b)
+void	ft_algos(t_all *all)
 {
 	int *partition;
 	int	cut_a;
@@ -324,31 +342,60 @@ void	ft_algos(int **stack_a, int **stack_b)
 	partition = (int *)malloc(sizeof(int));
 	partition[0] = 0;
 	cut_a = 1;
-	init_size = (*stack_a)[0];
+	init_size = (all->stack_a)[0];
 	while (cut_a < init_size)
 	{
-		ft_pb_cycle(stack_a, stack_b, &cut_a, &partition);
-		ft_pa_cycle(stack_a, stack_b, &cut_a, &partition);
+		ft_pb_cycle(all, &cut_a, &partition);
+		ft_pa_cycle(all, &cut_a, &partition);
 	}
 	free(partition);
 }
 
+int	ft_check_flags_p(char **argv, t_all *all)
+{
+	int		i;
+
+	i = 0;
+	if (!ft_strcmp(argv[1], "-v"))
+	{
+		all->flag_v += ++i;
+		if (argv[2] && !ft_strcmp(argv[2], "-c"))
+			all->flag_c += i++;
+	}
+	else if (!ft_strcmp(argv[1], "-c"))
+	{
+		all->flag_c += ++i;
+		if (argv[2] && !ft_strcmp(argv[2], "-v"))
+			all->flag_v += i++;
+	}
+	return (i);
+}
+
 int main(int argc, char **argv)
 {
-	int	*stack_a;
-	int	*stack_b;
+//	int	*stack_a;
+//	int	*stack_b;
+	t_all	*all;
+	int	shift;
 
-	if (argc <= 2)
+	if (argc == 1)
 		exit(0);
-	stack_a = ft_create_stack(argc, argv);
-	stack_b = (int *)malloc(sizeof(int));
-	if (!stack_b)
+	all = (t_all *)malloc(sizeof(t_all));
+	all->flag_c = 0;
+	all->flag_v = 0;
+	all->write = 1;
+	shift = ft_check_flags_p(argv, all);
+	all->stack_a = ft_create_stack(argc - shift, (argv + shift));
+	if (argc == 2)
+		exit(0);
+	all->stack_b = (int *)malloc(sizeof(int));
+	if (!all->stack_b)
 		ft_error(1);
-	*stack_b = 1;
+	*(all->stack_b) = 1;
 	if (argc <= 4)
-		ft_three(stack_a);
+		ft_three(all->stack_a, all);
 	else
-		ft_algos(&stack_a, &stack_b);
+		ft_algos(all);
 //	write(1, "sa\n", 3);
 //	while (1)
 //		;
@@ -361,10 +408,10 @@ int main(int argc, char **argv)
 //	i = 1;
 //	while (i < (*stack_b)[0])
 //		printf("%d\n", (*stack_b)[i++]);
-//		printf("partition:\n");
-//		i = 0;
-//		while (partition[i])
-//			printf("%d\n", partition[i++]);
+//	printf("partition:\n");
+//	i = 0;
+//	while (partition[i])
+//		printf("%d\n", partition[i++]);
 
 
 //	printf("initial stack_a:\n");
@@ -378,6 +425,6 @@ int main(int argc, char **argv)
 //	if (!stack_b)
 //		ft_error(1);
 //	*stack_b = 1;
-	free(stack_a);
-	free(stack_b);
+	free(all->stack_a);
+	free(all->stack_b);
 }

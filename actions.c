@@ -46,6 +46,46 @@ void	ft_command(char *buf, int **stack_a, int **stack_b)
 //		printf("%d\n", (*stack_b)[i++]);
 }
 
+void	ft_print_stacks(int *stack_a, int *stack_b)
+{
+	int i;
+
+	i = 1;
+	while (i < stack_a[0] || i < stack_b[0])
+	{
+		if (i < stack_a[0])
+			printf("% 19d |", stack_a[i]);
+		else
+			write(1, "                    |", 21);
+		if (i < stack_b[0])
+			printf("% 19d |", stack_b[i]);
+		printf("\n");
+		i++;
+	}
+}
+
+void	ft_exec_command(char *comm, t_all *all)
+{
+	ft_command(comm, &(all->stack_a), &(all->stack_b));
+	if (all->flag_c)
+		write(1, "\e[36m", 5);
+	if (all->write)
+		write(1, comm, ft_strlen(comm));
+	if (all->flag_v)
+	{
+		if (all->flag_c)
+			write(1, "\e[35m", 5);
+		write (1, "====================|====================\n"
+		 		"     STACK_A        |        STACK_B     \n", 84);
+		if (all->flag_c)
+			write(1, "\e[33m", 5);
+		ft_print_stacks(all->stack_a, all->stack_b);
+	}
+	if (all->flag_c)
+		write(1, "\e[0m", 4);
+}
+
+
 void	ft_swap(int *stack)
 {
 	int buf;

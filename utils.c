@@ -6,6 +6,8 @@ void	ft_error(int err)
 		write(2, "Error\n", 6);
 	else if (err == 1)
 		write(2, "Malloc error\n", 13);
+	else if (err == 2)
+		write(2, "File error\n", 11);
 	exit(1);
 }
 
