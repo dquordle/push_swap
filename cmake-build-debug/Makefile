@@ -143,140 +143,140 @@ push_swap/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/build
 .PHONY : push_swap/fast
 
-actions.o: actions.c.o
+srcs/actions.o: srcs/actions.c.o
 
-.PHONY : actions.o
-
-# target to build an object file
-actions.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/actions.c.o
-.PHONY : actions.c.o
-
-actions.i: actions.c.i
-
-.PHONY : actions.i
-
-# target to preprocess a source file
-actions.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/actions.c.i
-.PHONY : actions.c.i
-
-actions.s: actions.c.s
-
-.PHONY : actions.s
-
-# target to generate assembly for a file
-actions.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/actions.c.s
-.PHONY : actions.c.s
-
-checker.o: checker.c.o
-
-.PHONY : checker.o
+.PHONY : srcs/actions.o
 
 # target to build an object file
-checker.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/checker.c.o
-.PHONY : checker.c.o
+srcs/actions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/actions.c.o
+.PHONY : srcs/actions.c.o
 
-checker.i: checker.c.i
+srcs/actions.i: srcs/actions.c.i
 
-.PHONY : checker.i
+.PHONY : srcs/actions.i
 
 # target to preprocess a source file
-checker.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/checker.c.i
-.PHONY : checker.c.i
+srcs/actions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/actions.c.i
+.PHONY : srcs/actions.c.i
 
-checker.s: checker.c.s
+srcs/actions.s: srcs/actions.c.s
 
-.PHONY : checker.s
+.PHONY : srcs/actions.s
 
 # target to generate assembly for a file
-checker.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/checker.c.s
-.PHONY : checker.c.s
+srcs/actions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/actions.c.s
+.PHONY : srcs/actions.c.s
 
-merge_sort.o: merge_sort.c.o
+srcs/checker.o: srcs/checker.c.o
 
-.PHONY : merge_sort.o
+.PHONY : srcs/checker.o
 
 # target to build an object file
-merge_sort.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/merge_sort.c.o
-.PHONY : merge_sort.c.o
+srcs/checker.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/checker.c.o
+.PHONY : srcs/checker.c.o
 
-merge_sort.i: merge_sort.c.i
+srcs/checker.i: srcs/checker.c.i
 
-.PHONY : merge_sort.i
+.PHONY : srcs/checker.i
 
 # target to preprocess a source file
-merge_sort.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/merge_sort.c.i
-.PHONY : merge_sort.c.i
+srcs/checker.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/checker.c.i
+.PHONY : srcs/checker.c.i
 
-merge_sort.s: merge_sort.c.s
+srcs/checker.s: srcs/checker.c.s
 
-.PHONY : merge_sort.s
+.PHONY : srcs/checker.s
 
 # target to generate assembly for a file
-merge_sort.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/merge_sort.c.s
-.PHONY : merge_sort.c.s
+srcs/checker.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/checker.c.s
+.PHONY : srcs/checker.c.s
 
-push_swap.o: push_swap.c.o
+srcs/merge_sort.o: srcs/merge_sort.c.o
 
-.PHONY : push_swap.o
+.PHONY : srcs/merge_sort.o
 
 # target to build an object file
-push_swap.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/push_swap.c.o
-.PHONY : push_swap.c.o
+srcs/merge_sort.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/merge_sort.c.o
+.PHONY : srcs/merge_sort.c.o
 
-push_swap.i: push_swap.c.i
+srcs/merge_sort.i: srcs/merge_sort.c.i
 
-.PHONY : push_swap.i
+.PHONY : srcs/merge_sort.i
 
 # target to preprocess a source file
-push_swap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/push_swap.c.i
-.PHONY : push_swap.c.i
+srcs/merge_sort.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/merge_sort.c.i
+.PHONY : srcs/merge_sort.c.i
 
-push_swap.s: push_swap.c.s
+srcs/merge_sort.s: srcs/merge_sort.c.s
 
-.PHONY : push_swap.s
+.PHONY : srcs/merge_sort.s
 
 # target to generate assembly for a file
-push_swap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/push_swap.c.s
-.PHONY : push_swap.c.s
+srcs/merge_sort.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/merge_sort.c.s
+.PHONY : srcs/merge_sort.c.s
 
-utils.o: utils.c.o
+srcs/push_swap.o: srcs/push_swap.c.o
 
-.PHONY : utils.o
+.PHONY : srcs/push_swap.o
 
 # target to build an object file
-utils.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/utils.c.o
-.PHONY : utils.c.o
+srcs/push_swap.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/push_swap.c.o
+.PHONY : srcs/push_swap.c.o
 
-utils.i: utils.c.i
+srcs/push_swap.i: srcs/push_swap.c.i
 
-.PHONY : utils.i
+.PHONY : srcs/push_swap.i
 
 # target to preprocess a source file
-utils.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/utils.c.i
-.PHONY : utils.c.i
+srcs/push_swap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/push_swap.c.i
+.PHONY : srcs/push_swap.c.i
 
-utils.s: utils.c.s
+srcs/push_swap.s: srcs/push_swap.c.s
 
-.PHONY : utils.s
+.PHONY : srcs/push_swap.s
 
 # target to generate assembly for a file
-utils.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/utils.c.s
-.PHONY : utils.c.s
+srcs/push_swap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/push_swap.c.s
+.PHONY : srcs/push_swap.c.s
+
+srcs/utils.o: srcs/utils.c.o
+
+.PHONY : srcs/utils.o
+
+# target to build an object file
+srcs/utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/utils.c.o
+.PHONY : srcs/utils.c.o
+
+srcs/utils.i: srcs/utils.c.i
+
+.PHONY : srcs/utils.i
+
+# target to preprocess a source file
+srcs/utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/utils.c.i
+.PHONY : srcs/utils.c.i
+
+srcs/utils.s: srcs/utils.c.s
+
+.PHONY : srcs/utils.s
+
+# target to generate assembly for a file
+srcs/utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/utils.c.s
+.PHONY : srcs/utils.c.s
 
 # Help Target
 help:
@@ -287,21 +287,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... push_swap"
-	@echo "... actions.o"
-	@echo "... actions.i"
-	@echo "... actions.s"
-	@echo "... checker.o"
-	@echo "... checker.i"
-	@echo "... checker.s"
-	@echo "... merge_sort.o"
-	@echo "... merge_sort.i"
-	@echo "... merge_sort.s"
-	@echo "... push_swap.o"
-	@echo "... push_swap.i"
-	@echo "... push_swap.s"
-	@echo "... utils.o"
-	@echo "... utils.i"
-	@echo "... utils.s"
+	@echo "... srcs/actions.o"
+	@echo "... srcs/actions.i"
+	@echo "... srcs/actions.s"
+	@echo "... srcs/checker.o"
+	@echo "... srcs/checker.i"
+	@echo "... srcs/checker.s"
+	@echo "... srcs/merge_sort.o"
+	@echo "... srcs/merge_sort.i"
+	@echo "... srcs/merge_sort.s"
+	@echo "... srcs/push_swap.o"
+	@echo "... srcs/push_swap.i"
+	@echo "... srcs/push_swap.s"
+	@echo "... srcs/utils.o"
+	@echo "... srcs/utils.i"
+	@echo "... srcs/utils.s"
 .PHONY : help
 
 

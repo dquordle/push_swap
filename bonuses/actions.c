@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	ft_command(char *buf, int **stack_a, int **stack_b)
 {

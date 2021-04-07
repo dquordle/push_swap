@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/push_swap.dir/actions.c.o"
-  "CMakeFiles/push_swap.dir/checker.c.o"
-  "CMakeFiles/push_swap.dir/merge_sort.c.o"
-  "CMakeFiles/push_swap.dir/push_swap.c.o"
-  "CMakeFiles/push_swap.dir/utils.c.o"
+  "CMakeFiles/push_swap.dir/srcs/actions.c.o"
+  "CMakeFiles/push_swap.dir/srcs/checker.c.o"
+  "CMakeFiles/push_swap.dir/srcs/merge_sort.c.o"
+  "CMakeFiles/push_swap.dir/srcs/push_swap.c.o"
+  "CMakeFiles/push_swap.dir/srcs/utils.c.o"
   "push_swap"
   "push_swap.pdb"
 )

@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 
 int	ft_is_sorted(int *array, int start, int end)
@@ -340,6 +340,8 @@ void	ft_algos(t_all *all)
 	int init_size;
 
 	partition = (int *)malloc(sizeof(int));
+	if (!partition)
+		ft_error(1);
 	partition[0] = 0;
 	cut_a = 1;
 	init_size = (all->stack_a)[0];
