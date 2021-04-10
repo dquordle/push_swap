@@ -78,22 +78,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/dquordle/CLionProjects/push_swap/srcs/actions.c">
+		<Unit filename="/Users/dquordle/CLionProjects/push_swap/bonuses/actions_bonus.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/dquordle/CLionProjects/push_swap/srcs/checker.c">
+		<Unit filename="/Users/dquordle/CLionProjects/push_swap/bonuses/merge_sort_bonus.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/dquordle/CLionProjects/push_swap/srcs/merge_sort.c">
+		<Unit filename="/Users/dquordle/CLionProjects/push_swap/bonuses/push_swap_bonus.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/dquordle/CLionProjects/push_swap/srcs/push_swap.c">
+		<Unit filename="/Users/dquordle/CLionProjects/push_swap/bonuses/push_swap_bonus.h">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/dquordle/CLionProjects/push_swap/srcs/push_swap.h">
-			<Option target="push_swap"/>
-		</Unit>
-		<Unit filename="/Users/dquordle/CLionProjects/push_swap/srcs/utils.c">
+		<Unit filename="/Users/dquordle/CLionProjects/push_swap/bonuses/utils_bonus.c">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/dquordle/CLionProjects/push_swap/CMakeLists.txt">

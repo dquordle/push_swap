@@ -143,140 +143,113 @@ push_swap/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/build
 .PHONY : push_swap/fast
 
-srcs/actions.o: srcs/actions.c.o
+bonuses/actions_bonus.o: bonuses/actions_bonus.c.o
 
-.PHONY : srcs/actions.o
-
-# target to build an object file
-srcs/actions.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/actions.c.o
-.PHONY : srcs/actions.c.o
-
-srcs/actions.i: srcs/actions.c.i
-
-.PHONY : srcs/actions.i
-
-# target to preprocess a source file
-srcs/actions.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/actions.c.i
-.PHONY : srcs/actions.c.i
-
-srcs/actions.s: srcs/actions.c.s
-
-.PHONY : srcs/actions.s
-
-# target to generate assembly for a file
-srcs/actions.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/actions.c.s
-.PHONY : srcs/actions.c.s
-
-srcs/checker.o: srcs/checker.c.o
-
-.PHONY : srcs/checker.o
+.PHONY : bonuses/actions_bonus.o
 
 # target to build an object file
-srcs/checker.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/checker.c.o
-.PHONY : srcs/checker.c.o
+bonuses/actions_bonus.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/actions_bonus.c.o
+.PHONY : bonuses/actions_bonus.c.o
 
-srcs/checker.i: srcs/checker.c.i
+bonuses/actions_bonus.i: bonuses/actions_bonus.c.i
 
-.PHONY : srcs/checker.i
+.PHONY : bonuses/actions_bonus.i
 
 # target to preprocess a source file
-srcs/checker.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/checker.c.i
-.PHONY : srcs/checker.c.i
+bonuses/actions_bonus.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/actions_bonus.c.i
+.PHONY : bonuses/actions_bonus.c.i
 
-srcs/checker.s: srcs/checker.c.s
+bonuses/actions_bonus.s: bonuses/actions_bonus.c.s
 
-.PHONY : srcs/checker.s
+.PHONY : bonuses/actions_bonus.s
 
 # target to generate assembly for a file
-srcs/checker.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/checker.c.s
-.PHONY : srcs/checker.c.s
+bonuses/actions_bonus.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/actions_bonus.c.s
+.PHONY : bonuses/actions_bonus.c.s
 
-srcs/merge_sort.o: srcs/merge_sort.c.o
+bonuses/merge_sort_bonus.o: bonuses/merge_sort_bonus.c.o
 
-.PHONY : srcs/merge_sort.o
+.PHONY : bonuses/merge_sort_bonus.o
 
 # target to build an object file
-srcs/merge_sort.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/merge_sort.c.o
-.PHONY : srcs/merge_sort.c.o
+bonuses/merge_sort_bonus.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/merge_sort_bonus.c.o
+.PHONY : bonuses/merge_sort_bonus.c.o
 
-srcs/merge_sort.i: srcs/merge_sort.c.i
+bonuses/merge_sort_bonus.i: bonuses/merge_sort_bonus.c.i
 
-.PHONY : srcs/merge_sort.i
+.PHONY : bonuses/merge_sort_bonus.i
 
 # target to preprocess a source file
-srcs/merge_sort.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/merge_sort.c.i
-.PHONY : srcs/merge_sort.c.i
+bonuses/merge_sort_bonus.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/merge_sort_bonus.c.i
+.PHONY : bonuses/merge_sort_bonus.c.i
 
-srcs/merge_sort.s: srcs/merge_sort.c.s
+bonuses/merge_sort_bonus.s: bonuses/merge_sort_bonus.c.s
 
-.PHONY : srcs/merge_sort.s
+.PHONY : bonuses/merge_sort_bonus.s
 
 # target to generate assembly for a file
-srcs/merge_sort.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/merge_sort.c.s
-.PHONY : srcs/merge_sort.c.s
+bonuses/merge_sort_bonus.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/merge_sort_bonus.c.s
+.PHONY : bonuses/merge_sort_bonus.c.s
 
-srcs/push_swap.o: srcs/push_swap.c.o
+bonuses/push_swap_bonus.o: bonuses/push_swap_bonus.c.o
 
-.PHONY : srcs/push_swap.o
+.PHONY : bonuses/push_swap_bonus.o
 
 # target to build an object file
-srcs/push_swap.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/push_swap.c.o
-.PHONY : srcs/push_swap.c.o
+bonuses/push_swap_bonus.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/push_swap_bonus.c.o
+.PHONY : bonuses/push_swap_bonus.c.o
 
-srcs/push_swap.i: srcs/push_swap.c.i
+bonuses/push_swap_bonus.i: bonuses/push_swap_bonus.c.i
 
-.PHONY : srcs/push_swap.i
+.PHONY : bonuses/push_swap_bonus.i
 
 # target to preprocess a source file
-srcs/push_swap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/push_swap.c.i
-.PHONY : srcs/push_swap.c.i
+bonuses/push_swap_bonus.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/push_swap_bonus.c.i
+.PHONY : bonuses/push_swap_bonus.c.i
 
-srcs/push_swap.s: srcs/push_swap.c.s
+bonuses/push_swap_bonus.s: bonuses/push_swap_bonus.c.s
 
-.PHONY : srcs/push_swap.s
+.PHONY : bonuses/push_swap_bonus.s
 
 # target to generate assembly for a file
-srcs/push_swap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/push_swap.c.s
-.PHONY : srcs/push_swap.c.s
+bonuses/push_swap_bonus.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/push_swap_bonus.c.s
+.PHONY : bonuses/push_swap_bonus.c.s
 
-srcs/utils.o: srcs/utils.c.o
+bonuses/utils_bonus.o: bonuses/utils_bonus.c.o
 
-.PHONY : srcs/utils.o
+.PHONY : bonuses/utils_bonus.o
 
 # target to build an object file
-srcs/utils.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/utils.c.o
-.PHONY : srcs/utils.c.o
+bonuses/utils_bonus.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/utils_bonus.c.o
+.PHONY : bonuses/utils_bonus.c.o
 
-srcs/utils.i: srcs/utils.c.i
+bonuses/utils_bonus.i: bonuses/utils_bonus.c.i
 
-.PHONY : srcs/utils.i
+.PHONY : bonuses/utils_bonus.i
 
 # target to preprocess a source file
-srcs/utils.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/utils.c.i
-.PHONY : srcs/utils.c.i
+bonuses/utils_bonus.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/utils_bonus.c.i
+.PHONY : bonuses/utils_bonus.c.i
 
-srcs/utils.s: srcs/utils.c.s
+bonuses/utils_bonus.s: bonuses/utils_bonus.c.s
 
-.PHONY : srcs/utils.s
+.PHONY : bonuses/utils_bonus.s
 
 # target to generate assembly for a file
-srcs/utils.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/srcs/utils.c.s
-.PHONY : srcs/utils.c.s
+bonuses/utils_bonus.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/bonuses/utils_bonus.c.s
+.PHONY : bonuses/utils_bonus.c.s
 
 # Help Target
 help:
@@ -287,21 +260,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... push_swap"
-	@echo "... srcs/actions.o"
-	@echo "... srcs/actions.i"
-	@echo "... srcs/actions.s"
-	@echo "... srcs/checker.o"
-	@echo "... srcs/checker.i"
-	@echo "... srcs/checker.s"
-	@echo "... srcs/merge_sort.o"
-	@echo "... srcs/merge_sort.i"
-	@echo "... srcs/merge_sort.s"
-	@echo "... srcs/push_swap.o"
-	@echo "... srcs/push_swap.i"
-	@echo "... srcs/push_swap.s"
-	@echo "... srcs/utils.o"
-	@echo "... srcs/utils.i"
-	@echo "... srcs/utils.s"
+	@echo "... bonuses/actions_bonus.o"
+	@echo "... bonuses/actions_bonus.i"
+	@echo "... bonuses/actions_bonus.s"
+	@echo "... bonuses/merge_sort_bonus.o"
+	@echo "... bonuses/merge_sort_bonus.i"
+	@echo "... bonuses/merge_sort_bonus.s"
+	@echo "... bonuses/push_swap_bonus.o"
+	@echo "... bonuses/push_swap_bonus.i"
+	@echo "... bonuses/push_swap_bonus.s"
+	@echo "... bonuses/utils_bonus.o"
+	@echo "... bonuses/utils_bonus.i"
+	@echo "... bonuses/utils_bonus.s"
 .PHONY : help
 
 

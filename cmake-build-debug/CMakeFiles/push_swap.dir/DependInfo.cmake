@@ -4,11 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/dquordle/CLionProjects/push_swap/srcs/actions.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/srcs/actions.c.o"
-  "/Users/dquordle/CLionProjects/push_swap/srcs/checker.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/srcs/checker.c.o"
-  "/Users/dquordle/CLionProjects/push_swap/srcs/merge_sort.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/srcs/merge_sort.c.o"
-  "/Users/dquordle/CLionProjects/push_swap/srcs/push_swap.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/srcs/push_swap.c.o"
-  "/Users/dquordle/CLionProjects/push_swap/srcs/utils.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/srcs/utils.c.o"
+  "/Users/dquordle/CLionProjects/push_swap/bonuses/actions_bonus.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/bonuses/actions_bonus.c.o"
+  "/Users/dquordle/CLionProjects/push_swap/bonuses/merge_sort_bonus.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/bonuses/merge_sort_bonus.c.o"
+  "/Users/dquordle/CLionProjects/push_swap/bonuses/push_swap_bonus.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/bonuses/push_swap_bonus.c.o"
+  "/Users/dquordle/CLionProjects/push_swap/bonuses/utils_bonus.c" "/Users/dquordle/CLionProjects/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/bonuses/utils_bonus.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

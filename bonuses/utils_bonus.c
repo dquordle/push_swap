@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dquordle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/10 20:40:16 by dquordle          #+#    #+#             */
+/*   Updated: 2021/04/10 20:40:18 by dquordle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 void	ft_error(int err)
@@ -11,9 +23,9 @@ void	ft_error(int err)
 	exit(1);
 }
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s1[i] && s2[i])
@@ -76,7 +88,7 @@ int	*ft_create_stack(int argc, char **argv)
 {
 	int	i;
 	int	*arr;
-	int j;
+	int	j;
 
 	ft_validate(argv);
 	arr = (int *)malloc(sizeof(int) * (argc + 1));
